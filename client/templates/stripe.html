@@ -1,0 +1,16 @@
+<template name="stripe">
+<div class="row">
+  <h2>Stripe <small data-18n="app.settings">Settings</small></h2>
+</div>
+<div class="row">
+  <div class="col-md-6 well">
+     {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.StripePackageConfig" doc=packageData type="update" id="stripe-update-form"}}
+      <div class="form-group">
+      	Don't have a Stripe API key? <a href="https://dashboard.stripe.com/account/apikeys" target="_blank">Get it here.</a> (Need to sign in)
+      </div>
+      {{>afQuickField name='settings.api_key'}}
+      <button type="submit" class="btn btn-primary pull-right">Update</button>
+    {{/autoForm}}
+  </div>
+</div>
+</template>

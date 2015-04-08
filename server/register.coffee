@@ -1,9 +1,6 @@
 ReactionCore.registerPackage
-  name: 'reaction-stripe' # usually same as meteor package
-  autoEnable: false # auto-enable in dashboard
-  settings: # private package settings config (blackbox)
-    mode: false
-    api_key: ""
+  name: 'reaction-cod' # usually same as meteor package
+  autoEnable: true # auto-enable in dashboard
   registry: [
     # all options except route and template
     # are used to describe the
@@ -18,23 +15,11 @@ ReactionCore.registerPackage
     }
     # configures settings link for app card
     # use 'group' to link to dashboard card
-    {
-      route: 'stripe'
-      provides: 'settings'
-      container: 'dashboard'
-    }
+
     # configures template for checkout
     # paymentMethod dynamic template
     {
-      template: 'stripePaymentForm'
+      template: 'codPaymentForm'
       provides: 'paymentMethod'
-    }
-  ]
-  # array of permission objects
-  permissions: [
-    {
-      label: "Stripe"
-      permission: "dashboard/payments"
-      group: "Shop Settings"
     }
   ]

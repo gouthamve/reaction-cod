@@ -1,6 +1,6 @@
 ReactionCore.registerPackage
   name: 'reaction-cod' # usually same as meteor package
-  autoEnable: true # auto-enable in dashboard
+  autoEnable: false # auto-enable in dashboard
   registry: [
     # all options except route and template
     # are used to describe the

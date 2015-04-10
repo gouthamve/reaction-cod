@@ -4,8 +4,10 @@
 </div>
 <div class="row">
   <div class="col-md-6 well">
-     {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.CodPackageConfig" doc=packageData type="update" id="cod-update-form"}}
+    {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.CodPackageConfig" doc=packageData type="update" id="cod-update-form"}}
       {{>afQuickField name='settings.additionalCharge'}}
+      Please add the key to google sheet here.
+      {{>afQuickField name='settings.sheetKey'}}
       <button type="submit" class="btn btn-primary pull-right">Update</button>
     {{/autoForm}}
   </div>

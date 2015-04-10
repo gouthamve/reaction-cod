@@ -11,6 +11,7 @@ Package.onUse(function (api, where) {
   api.use("coffeescript");
   api.use("less");
   api.use("reactioncommerce:core@0.5.0");
+  api.use("ongoworks:google-spreadsheets")
 
   api.addFiles("server/register.coffee",["server"]); // register as a reaction package
 

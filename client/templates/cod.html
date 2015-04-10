@@ -1,0 +1,13 @@
+<template name="cod">
+<div class="row">
+  <h2>COD <small data-18n="app.settings">Settings</small></h2>
+</div>
+<div class="row">
+  <div class="col-md-6 well">
+     {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.CodPackageConfig" doc=packageData type="update" id="cod-update-form"}}
+      {{>afQuickField name='settings.additionalCharge'}}
+      <button type="submit" class="btn btn-primary pull-right">Update</button>
+    {{/autoForm}}
+  </div>
+</div>
+</template>

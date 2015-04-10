@@ -15,6 +15,13 @@ Package.onUse(function (api, where) {
   api.addFiles("server/register.coffee",["server"]); // register as a reaction package
 
   api.addFiles([
+    "common/collections.coffee",
+    "common/routing.coffee"
+    ],["client","server"]);
+
+  api.addFiles([
+    "client/templates/cod.html",
+    "client/templates/cod.coffee",
     "client/templates/cart/checkout/payment/methods/cod/cod.html",
     "client/templates/cart/checkout/payment/methods/cod/cod.coffee"
     ],

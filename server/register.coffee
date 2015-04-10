@@ -1,6 +1,9 @@
 ReactionCore.registerPackage
   name: 'reaction-cod' # usually same as meteor package
   autoEnable: false # auto-enable in dashboard
+  settings:
+    additionalCharge: 0
+  
   registry: [
     # all options except route and template
     # are used to describe the
@@ -15,11 +18,23 @@ ReactionCore.registerPackage
     }
     # configures settings link for app card
     # use 'group' to link to dashboard card
-
+    {
+      route: 'cod'
+      provides: 'settings'
+      container: 'dashboard'
+    }
     # configures template for checkout
     # paymentMethod dynamic template
     {
       template: 'codPaymentForm'
       provides: 'paymentMethod'
+    }
+  ]
+  # array of permission objects
+  permissions: [
+    {
+      label: "COD"
+      permission: "dashboard/payments"
+      group: "Shop Settings"
     }
   ]

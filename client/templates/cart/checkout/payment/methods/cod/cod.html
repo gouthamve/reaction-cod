@@ -1,5 +1,18 @@
 <template name="codPaymentForm">
-  <button type="submit" class="btn btn-lg btn-success btn-block btn-complete-order">
-    <span id="btn-complete-order">Pay through COD</span>	
-  </button>
+	{{#if validPin}}
+	  <button type="submit" class="btn btn-lg btn-success btn-block btn-complete-order">
+	    <span id="btn-complete-order">Pay through COD</span>	
+	  </button>
+  {{else}}
+  	<p>Sorry the present address is not serviceable by COD</p>
+  	<p>Please try alternate addresses or Payment Methods</p>
+  	<p>Enter a pin to check if it serviceable by COD</p>
+  	<div class="input-group col-lg-12">
+		  <input type="text" name="testPin" class="form-control" placeholder="PinCode">
+		</div>
+		<br>
+  	<button type="submit" class="btn btn-lg btn-success btn-block btn-check-pin">
+	    <span id="btn-check-pin">Check</span>	
+	  </button>
+  {{/if}}
 </template>

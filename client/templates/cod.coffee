@@ -5,10 +5,9 @@ Template.cod.helpers
 
 AutoForm.hooks "cod-update-form":
   onSuccess: (operation, result, template) ->
-    console.log template
-    console.log ReactionCore.Collections.Packages.findOne({name:"reaction-cod"})
     Alerts.removeSeen()
     Alerts.add "COD settings saved.", "success"
+    Meteor.call "updatePincodes"
 
   onError: (operation, error, template) ->
     Alerts.removeSeen()

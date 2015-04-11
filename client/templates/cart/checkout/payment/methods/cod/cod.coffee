@@ -17,11 +17,17 @@ Template.codPaymentForm.events
       createdAt: new Date()
       transactions: []
     CartWorkflow.paymentMethod(paymentMethod)
-  'click .btn-check-pin': () ->
-    #TO-DO: Validate the pin
-    
+
+  #TODO: Add check PIN functionality
+  #'click .btn-check-pin': (event,template) ->
+  #  testPin = parseInt(template.find("input[name=testPin]").value)
+
 Template.codPaymentForm.helpers
  validPin: ->
   cartId = ReactionCore.Collections.Cart.findOne()._id
-  console.log Meteor.call "validPin", cartId #Showing undefined??
-  return true
+  Meteor.call "isValidPin", cartId, (err, result)->
+    if result
+      Session.set "isValidPin", true
+    else
+      Session.set "isValidPin", false
+  return Session.get "isValidPin"

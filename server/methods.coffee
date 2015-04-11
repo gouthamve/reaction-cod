@@ -7,10 +7,9 @@ Meteor.methods
     for index,row of spreadsheetData.cells
       pincodes.push(parseInt(row[1].value))
     ReactionCore.Collections.Packages.update({name:"reaction-cod"}, {$set:{"settings.pincodes": pincodes}})
-  isValidPin: (cartId) ->
-    return false unless cartId
-    check cartId, String
-    currPin = parseInt(ReactionCore.Collections.Cart.findOne({_id: cartId}).shipping.address.postal)
+  isValidPin: (currPin) ->
+    return false unless currPin
+    check currPin, Number
     return true unless ReactionCore.Collections.Packages.findOne({name:"reaction-cod"}).settings.pincodes[0]
     if ReactionCore.Collections.Packages.findOne({name:"reaction-cod", "settings.pincodes": currPin})
       return true

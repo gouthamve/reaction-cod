@@ -14,6 +14,7 @@ Package.onUse(function (api, where) {
   api.use("ongoworks:google-spreadsheets")
 
   api.addFiles("server/register.coffee",["server"]); // register as a reaction package
+  api.addFiles("server/methods.coffee",["server"]);
 
   api.addFiles([
     "common/collections.coffee",

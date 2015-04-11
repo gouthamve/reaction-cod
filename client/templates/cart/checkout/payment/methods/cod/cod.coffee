@@ -1,5 +1,5 @@
 Template.codPaymentForm.events
-  'click button, #btn-complete-order': () ->
+  'click .btn-complete-order': () ->
     total = ReactionCore.Collections.Cart.findOne().cartTotal()
     normalizedStatus = "settled"
     normalizedMode = "capture"
@@ -8,7 +8,6 @@ Template.codPaymentForm.events
       captured: true,
       amount: total * 100
     }
-
     paymentMethod =
       processor: "COD"
       amount: total
@@ -18,3 +17,11 @@ Template.codPaymentForm.events
       createdAt: new Date()
       transactions: []
     CartWorkflow.paymentMethod(paymentMethod)
+  'click .btn-check-pin': () ->
+    #TO-DO: Validate the pin
+    
+Template.codPaymentForm.helpers
+ validPin: ->
+  cartId = ReactionCore.Collections.Cart.findOne()._id
+  console.log Meteor.call "validPin", cartId #Showing undefined??
+  return true

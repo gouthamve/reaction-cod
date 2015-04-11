@@ -3,6 +3,8 @@ ReactionCore.registerPackage
   autoEnable: false # auto-enable in dashboard
   settings:
     additionalCharge: 0
+    sheetKey: ""
+    pincodes: []
   
   registry: [
     # all options except route and template

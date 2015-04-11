@@ -18,14 +18,20 @@ Template.codPaymentForm.events
       transactions: []
     CartWorkflow.paymentMethod(paymentMethod)
 
-  #TODO: Add check PIN functionality
-  #'click .btn-check-pin': (event,template) ->
-  #  testPin = parseInt(template.find("input[name=testPin]").value)
+  #TODO: Better Alerts
+  'click .btn-check-pin': (event,template) ->
+    testPin = parseInt(template.find("input[name=testPin]").value)
+    if testPin
+      Meteor.call "isValidPin", testPin, (err, result)->
+        if result
+          Alerts.add Alerts.add "Pincode is serviceable", "success", autoHide: true
+        else
+          Alerts.add Alerts.add "Pincode is not serviceable", "danger", autoHide: true
 
 Template.codPaymentForm.helpers
  validPin: ->
-  cartId = ReactionCore.Collections.Cart.findOne()._id
-  Meteor.call "isValidPin", cartId, (err, result)->
+  pin = parseInt(ReactionCore.Collections.Cart.findOne().shipping.address.postal)
+  Meteor.call "isValidPin", pin, (err, result)->
     if result
       Session.set "isValidPin", true
     else

@@ -10,8 +10,8 @@ Package.onUse(function (api, where) {
   api.use("meteor-platform");
   api.use("coffeescript");
   api.use("less");
-  api.use("reactioncommerce:core@0.5.0");
-  api.use("ongoworks:google-spreadsheets@0.3.0");
+  api.use("reactioncommerce:core");
+  api.use("ongoworks:google-spreadsheets");
 
   api.addFiles("server/register.coffee",["server"]); // register as a reaction package
   api.addFiles("server/methods.coffee",["server"]);

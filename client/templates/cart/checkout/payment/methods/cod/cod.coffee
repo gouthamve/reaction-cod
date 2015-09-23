@@ -15,8 +15,7 @@ Template.codPaymentForm.events
       mode: normalizedMode
       transactionId: id
       createdAt: new Date()
-      transactions: []
-    CartWorkflow.paymentMethod(paymentMethod)
+    Meteor.call "cart/submitPayment", paymentMethod
 
   #TODO: Better Alerts
   'click .btn-check-pin': (event,template) ->

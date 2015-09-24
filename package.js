@@ -1,12 +1,12 @@
 Package.describe({
   summary: "Reaction COD - COD payments for Reaction Commerce",
   name: "gouthamve:reaction-cod",
-  version: "1.1.0",
+  version: "1.2.0",
   git: "https://github.com/gouthamve/reaction-cod.git"
 });
 
 Package.onUse(function (api, where) {
-  api.versionsFrom('METEOR@1.0');
+  api.versionsFrom('METEOR@1.2');
   api.use("meteor-platform");
   api.use("coffeescript");
   api.use("less");

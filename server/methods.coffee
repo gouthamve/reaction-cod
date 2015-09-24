@@ -8,11 +8,10 @@ Meteor.methods
       pincodes.push(parseInt(row[1].value))
     ReactionCore.Collections.Packages.update({name:"reaction-cod"}, {$set:{"settings.pincodes": pincodes}})
   isValidPin: (currPin) ->
-    return false unless currPin
     check currPin, Number
+    return false unless currPin
     return true unless ReactionCore.Collections.Packages.findOne({name:"reaction-cod"}).settings.pincodes[0]
     if ReactionCore.Collections.Packages.findOne({name:"reaction-cod", "settings.pincodes": currPin})
       return true
     else
       return false
-    

@@ -6,11 +6,11 @@ Template.codPaymentForm.events
     id = new Mongo.ObjectID().toString()
     response = {
       captured: true,
-      amount: total * 100
+      amount: parseFloat(total * 100)
     }
     paymentMethod =
       processor: "COD"
-      amount: total
+      amount: parseFloat(total)
       status: normalizedStatus
       mode: normalizedMode
       transactionId: id

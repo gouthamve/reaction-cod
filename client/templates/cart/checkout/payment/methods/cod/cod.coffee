@@ -6,11 +6,11 @@ Template.codPaymentForm.events
     id = new Mongo.ObjectID().toString()
     response = {
       captured: true,
-      amount: total * 100
+      amount: parseFloat(total * 100)
     }
     paymentMethod =
       processor: "COD"
-      amount: total
+      amount: parseFloat(total)
       status: normalizedStatus
       mode: normalizedMode
       transactionId: id
@@ -29,7 +29,7 @@ Template.codPaymentForm.events
 
 Template.codPaymentForm.helpers
  validPin: ->
-  pin = parseInt(ReactionCore.Collections.Cart.findOne().shipping.address.postal)
+  pin = parseInt(_.first(ReactionCore.Collections.Cart.findOne().shipping).address.postal)
   Meteor.call "isValidPin", pin, (err, result)->
     if result
       Session.set "isValidPin", true
